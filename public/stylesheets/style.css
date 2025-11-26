@@ -1,8 +1,79 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  min-height: 100vh;
+  font: 14px Verdana, Helvetica, Arial, sans-serif;
 }
 
+
+header {
+  background-color: #cdcecf;
+  color: rgb(0, 0, 0);
+  padding: 2rem;
+  text-align: center;
+  padding: 1rem 1rem;
+}
+
+footer {
+  margin-top: auto;
+  font-size: 12px;
+  background-color: #282f36;
+  color: white;
+  padding: 1rem 1rem;
+  text-align: center;
+  border-top: 1px solid white;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 2rem auto;
+  background-color: beige;
+  border: 1px solid black;
+  text-align: center;
+  min-height: 80vh;
+}
 a {
   color: #00B7FF;
+}
+
+
+
+.items {
+  border-radius: 1px;
+  border: 1px solid black;
+  width: 80%;
+  margin: 2rem auto;
+}
+
+.listItems {
+  font-size: 1.5rem;
+}
+
+
+p.classDescription {
+  font-size: 24px;
+}
+
+label {
+  font-size: 28px;
+  font-family: 'Trebuchet MS',Helvetica, Arial, sans-serif;
+}
+
+.form-group {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+.form-select {
+  padding: 1rem;
+  border-radius: 1rem;
+  border: 1px solid black;
+  width: 80%;
+  margin: 2rem auto;
 }

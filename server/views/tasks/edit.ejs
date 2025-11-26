@@ -1,16 +1,43 @@
 <%- include('../partials/header') %>
 
-<h1>Tasks</h1>
 
+<h1>Edit <%= data.name %></h1>
 
-<% if (!tasks || tasks.length === 0) { %>
-    <p>No tasks listed.</p>
+<% if (errors && errors.length) { %>
+  <div class="alert alert-danger">
+    <ul class="mb-0">
+      <% errors.forEach(err => { %>
+        <li><%= err.msg %></li>
+      <% }) %>
+    </ul>
+  </div>
+<% } %>
 
-<% } else { %>
+<form action="/tasks/<%= data._id %>?_method=PUT" method="post">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control" name="name" value="<%= data.name %>">
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" name="description" value="<%= data.description %>">
+    </div>
+    <div class="form-group">
+        <label>Date Due</label>
+        <input type="date" class="form-control" name="dueDate" value="<%= data.dueDate ? new Date(data.dueDate).toISOString().substr(0,10) : '' %>">
+    </div>
+    <div class="form-group">
+        <label>Priority</label>
+        <select name="priority" class="form-select">
+            <option <%= data.priority === "Very High" ? "selected" : '' %>>Very High</option>
+            <option <%= data.priority === "High" ? "selected" : '' %>>High</option>
+            <option <%= data.priority === "Medium" ? "selected" : '' %>>Medium</option>
+            <option <%= data.priority === "Low" ? "selected" : '' %>>Low</option>
+            <option <%= data.priority === "Very Low" ? "selected" : '' %>>Very Low</option>
+        </select>
+    </div>
+    <button class="btn btn-success" type="submit">Save</button>
+    <a class="btn btn-secondary" href="/tasks">Cancel</a>
+</form>
 
-<%}%>
-
-
-
-<%- include('../partials/footer')
-
+<%- include('../partials/footer') %>
