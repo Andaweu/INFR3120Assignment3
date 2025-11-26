@@ -2,7 +2,7 @@
 <div class="container col-md-6 my-4">
 <h1 class="text-center my-4 text-dark bg-light rounded shadow-sm">Create New Task</h1>
 </div>
-<% if (errors && errors.length) { %>
+<% if (errors && errors.length) { %> <%# prompts the user if any of the inputs are invalid for submission %>
     <div class="alert alert-danger">
       <ul class="mb-0">
         <% errors.forEach(err => { %>
@@ -15,18 +15,18 @@
 <form action="/tasks" method="post">
     <div class="form-group">
         <label for="formLabel" class="form-label">Name</label>
-        <input required class="form-control" name="name" value="<%= data.name || '' %>">
+        <input required class="form-control" name="name" value="<%= data.name || '' %>"> <%# gets the name of the task %>
     </div>
     <div class="form-group">
         <label for="formLabel" class="form-label">Description</label>
-        <input required class="form-control" name="description" value="<%= data.description || '' %>">
+        <input required class="form-control" name="description" value="<%= data.description || '' %>"> <%# gets the name of the task description %>
     </div>
     <div class="form-group">
         <label for="formLabel" class="form-label">Date Due</label>
-        <input type="date" class="form-control" name="dueDate" value="<%= data.dueDate ? new Date(data.dueDate).toISOString().substr(0,10) : '' %>">
+        <input type="date" class="form-control" name="dueDate" value="<%= data.dueDate ? new Date(data.dueDate).toISOString().substr(0,10) : '' %>"> <%# gets the tasks due date %>
     </div>
     <div class="form-group">
-        <label for="formLabel" class="form-label">Priority</label>
+        <label for="formLabel" class="form-label">Priority</label> <%# provides a list of priorities for the user to pick from %>
         <select name="priority" class="form-select">
             <option <%= data.priority === "Very High" ? "selected" : '' %>>Very High</option>
             <option <%= data.priority === "High" ? "selected" : '' %>>High</option>

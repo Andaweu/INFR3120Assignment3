@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// data structure for the tasks recorded
 const task = new mongoose.Schema({
 
     name: { type: String, required: true, trim: true },

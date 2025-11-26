@@ -9,8 +9,8 @@ const methodOverride = require('method-override')
 
 var mongoDB_URI = process.env.MONGODB_URI
 
+// sets the routes for the index and tasks pages
 var indexRouter = require('./server/routes/index');
-//var usersRouter = require('./server/routes/users');
 var tasksRouter = require('./server/routes/tasks');
 
 var app = express();
@@ -27,7 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 app.use('/tasks', tasksRouter);
 
 mongoose.connect(process.env.MONGODB_URI);

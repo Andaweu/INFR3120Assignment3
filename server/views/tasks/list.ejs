@@ -2,31 +2,31 @@
 
 
 <h1>Tasks</h1>
-<a class="btn btn-success mb-2" href="/tasks/new"><i class="bi bi-clipboard-check me-2"></i>New Task</a>
+<a class="btn btn-success mb-2" href="/tasks/new"><i class="bi bi-clipboard-check me-2"></i>New Task</a> <%# button to create a new task %>
 
-<% if (!tasks || tasks.length === 0) { %>
+<% if (!tasks || tasks.length === 0) { %> <%# displays if there are no tasks %>
     <p>No tasks listed.</p>
 
 <% } else { %>
 
     <table class="table border-primary table-striped-columns ">
-    <% tasks.forEach(task => { %>
+    <% tasks.forEach(task => { %> <%# lists all tasks recorded %>
     <div class="d-flex">
     
     <tr class="table">
         <div>
         <td class="text-center col-2"><a href="/tasks/<%=task._id %>" class="text-decoration-none text-primary fw-bold fs-4"><%=task.name%></a> </td>
-        <td><small class="badge <%= task.priority === 'Very High' ? 'bg-danger' :
+        <td><small class="badge <%= task.priority === 'Very High' ? 'bg-danger' : 
              task.priority === 'High' ? 'bg-warning' :
              task.priority === 'Medium' ? 'bg-secondary' :
              task.priority === 'Low' ? 'bg-primary' :
              task.priority === 'Very Low' ? 'bg-success':
-             'bg-secondary'  %>"><%= task.priority %></small></td>
+             'bg-secondary'  %>"><%= task.priority %></small></td> <%# displays a colored badge for each differing level of priority %>
         </div>
         <td><p class="mb-1">Due Date: <%= task.dueDate ? new Date(task.dueDate).toLocaleDateString() : '—' %></p></td>
         
-        <td><a class="btn btn-primary btn-sm" href="/tasks/edit/<%= task._id %>">Edit</a></td>
-        <td><a class="btn btn-light" href="/tasks/<%=task._id %>"><i class="bi bi-info-circle text-dark"></i>More Details</a></td>
+        <td><a class="btn btn-primary btn-sm" href="/tasks/edit/<%= task._id %>">Edit</a></td> <%# edit button to go to edit page for the corresponding task %>
+        <td><a class="btn btn-light" href="/tasks/<%=task._id %>"><i class="bi bi-info-circle text-dark"></i>More Details</a></td> <%# button to go to that tasks more details page %>
     </tr>
     </div>
     <% }) %>

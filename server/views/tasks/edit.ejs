@@ -3,7 +3,7 @@
 
 <h1>Edit <%= data.name %></h1>
 
-<% if (errors && errors.length) { %>
+<% if (errors && errors.length) { %> <%# prompts the user if any of the inputs are invalid for submission %>
   <div class="alert alert-danger">
     <ul class="mb-0">
       <% errors.forEach(err => { %>
@@ -16,25 +16,25 @@
 <form action="/tasks/<%= data._id %>?_method=PUT" method="post">
     <div class="form-group">
         <label>Name</label>
-        <input class="form-control" name="name" value="<%= data.name %>">
+        <input class="form-control" name="name" value="<%= data.name %>"> <%# gets the current name of the task %>
     </div>
     <div class="form-group">
         <label>Description</label>
-        <input class="form-control" name="description" value="<%= data.description %>">
+        <input class="form-control" name="description" value="<%= data.description %>"> <%# gets the current name of the task description %>
     </div>
     <div class="form-group">
         <label>Date Due</label>
-        <input type="date" class="form-control" name="dueDate" value="<%= data.dueDate ? new Date(data.dueDate).toISOString().substr(0,10) : '' %>">
+        <input type="date" class="form-control" name="dueDate" value="<%= data.dueDate ? new Date(data.dueDate).toISOString().substr(0,10) : '' %>"> <%# gets the tasks current due date %>
     </div>
     <div class="form-group">
         <label>Priority</label>
-        <select name="priority" class="form-select">
+        <select name="priority" class="form-select"> <%# list of priorities for the user to pick%>
             <option <%= data.priority === "Very High" ? "selected" : '' %>>Very High</option>
             <option <%= data.priority === "High" ? "selected" : '' %>>High</option>
             <option <%= data.priority === "Medium" ? "selected" : '' %>>Medium</option>
             <option <%= data.priority === "Low" ? "selected" : '' %>>Low</option>
             <option <%= data.priority === "Very Low" ? "selected" : '' %>>Very Low</option>
-        </select>
+        </select> 
     </div>
     <button class="btn btn-success" type="submit">Save</button>
     <a class="btn btn-secondary" href="/tasks">Cancel</a>
