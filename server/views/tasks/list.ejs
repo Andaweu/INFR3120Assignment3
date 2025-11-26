@@ -1,0 +1,27 @@
+<%- include('../partials/header') %>
+
+<h1>Tasks</h1>
+<a class="btn btn-success" href="/tasks/new">+ New Task</a>
+<% if (!tasks || tasks.length === 0) { %>
+    <p>No tasks listed.</p>
+
+<% } else { %>
+    <% tasks.forEach(task => { %>
+    <a href="/tasks/<%=task._id %>" class="listItems">
+    <div>
+        <h4><%=task.name%></h4>
+        <p><%= task.description %></p>
+        <small class="badge <%= task.priority === 'High' ? 'bg-danger' : (task.priority === 'Medium' ? 'bg-warning text-dark' : 'bg-secondary') %>"><%= task.priority %></small>
+        </div>
+        <p class="mb-1">Due Date: <%= task.dueDate ? new Date(task.dueDate).toLocaleDateString() : '—' %></p>
+        </a>
+
+    <% }) %>
+
+
+<%}%>
+
+
+
+<%- include('../partials/footer') %>
+
