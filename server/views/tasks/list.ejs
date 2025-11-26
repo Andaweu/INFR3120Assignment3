@@ -2,7 +2,7 @@
 
 
 <h1>Tasks</h1>
-<a class="btn btn-success" href="/tasks/new">+ New Task</a>
+<a class="btn btn-success mb-2" href="/tasks/new"><i class="bi bi-clipboard-check me-2"></i>New Task</a>
 
 <% if (!tasks || tasks.length === 0) { %>
     <p>No tasks listed.</p>
@@ -15,13 +15,18 @@
     
     <tr class="table">
         <div>
-        <td class="text-center col-2"><a href="/tasks/<%=task._id %>" class="listItems"><%=task.name%></a> </td>
-        <td><small class="badge <%= task.priority === 'High' ? 'bg-danger' : (task.priority === 'Medium' ? 'bg-warning text-dark' : 'bg-secondary') %>"><%= task.priority %></small></td>
+        <td class="text-center col-2"><a href="/tasks/<%=task._id %>" class="text-decoration-none text-primary fw-bold fs-4"><%=task.name%></a> </td>
+        <td><small class="badge <%= task.priority === 'Very High' ? 'bg-danger' :
+             task.priority === 'High' ? 'bg-warning' :
+             task.priority === 'Medium' ? 'bg-secondary' :
+             task.priority === 'Low' ? 'bg-primary' :
+             task.priority === 'Very Low' ? 'bg-success':
+             'bg-secondary'  %>"><%= task.priority %></small></td>
         </div>
         <td><p class="mb-1">Due Date: <%= task.dueDate ? new Date(task.dueDate).toLocaleDateString() : '—' %></p></td>
         
         <td><a class="btn btn-primary btn-sm" href="/tasks/edit/<%= task._id %>">Edit</a></td>
-        <td><a class="btn btn-info" href="/tasks/<%=task._id %>">More Details</a></td>
+        <td><a class="btn btn-light" href="/tasks/<%=task._id %>"><i class="bi bi-info-circle text-dark"></i>More Details</a></td>
     </tr>
     </div>
     <% }) %>

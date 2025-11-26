@@ -4,13 +4,6 @@ body {
 }
 
 
-header {
-  background-color: #cdcecf;
-  color: rgb(0, 0, 0);
-  padding: 2rem;
-  text-align: center;
-  padding: 1rem 1rem;
-}
 
 footer {
   margin-top: auto;
@@ -62,6 +55,12 @@ label {
   margin-bottom: 1rem;
 }
 
+.form-label {
+  background-color: rgb(182, 157, 126);
+  border-radius: 2rem 2rem 2rem 2rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+}
+
 .form-control {
   padding: 1rem;
   border-radius: 1rem;
@@ -76,4 +75,18 @@ label {
   border: 1px solid black;
   width: 80%;
   margin: 2rem auto;
+}
+
+
+.taskDescription {
+  background-color: white;
+  border-radius: 0.5rem 0.5rem 0.5rem 0.5rem;
+  width: 50%;
+  margin: 0 auto;
+  min-height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
 }
